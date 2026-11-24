@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7ef">
+  <title>Pig Food Picture Sort</title>
+  <meta name="description" content="Sort food pictures and explain where each food comes from.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="heading">
+        <div class="lesson">FARM FUN · HERE AN OINK, THERE AN OINK</div>
+        <h1>🐷 Pig Food Sort</h1>
+      </div>
+      <nav class="controls" aria-label="Teacher controls">
+        <button id="shuffle" type="button">Shuffle</button>
+        <button id="reset" type="button">Reset</button>
+        <button id="check" type="button">Check</button>
+        <button id="settings" type="button">Settings</button>
+        <button id="fullscreen" class="primary" type="button">Full screen</button>
+      </nav>
+    </header>
+    <div class="directions"><p>Move a food to its group. <strong>Tell us why!</strong></p><span id="progress" aria-live="polite">0 of 16 sorted</span></div>
+    <div id="board" class="board">
+      <section class="zone tray" data-zone="tray" aria-label="Foods to sort">
+        <button type="button" class="zone-title" data-place="tray">Foods to sort</button>
+        <div class="cards" id="tray-cards"></div>
+      </section>
+      <section class="zone pork" data-zone="pork" aria-label="From a pig">
+        <button type="button" class="zone-title" id="pork-title" data-place="pork">From a pig</button>
+        <div class="cards" id="pork-cards"></div>
+      </section>
+      <section class="zone other" data-zone="other" aria-label="From another source">
+        <button type="button" class="zone-title" id="other-title" data-place="other">From another source</button>
+        <div class="cards" id="other-cards"></div>
+      </section>
+    </div>
+    <footer><p class="sentence">“I put the ___ here because ___.”</p><p class="status" id="status" role="status">Drag a food or tap it, then tap a group.</p></footer>
+  </main>
+  <dialog id="settings-dialog">
+    <form method="dialog">
+      <h2>Teacher settings</h2>
+      <label>Number of pictures<select id="amount"><option value="8">8 pictures</option><option value="12">12 pictures</option><option value="16" selected>16 pictures</option></select></label>
+      <label>Group 1<input id="first-name" maxlength="40" value="From a pig"></label>
+      <label>Group 2<input id="second-name" maxlength="40" value="From another source"></label>
+      <label class="check-label"><input id="show-names" type="checkbox"> Show food names</label>
+      <p>Change the group names for open-ended discussion. Check works with the original groups.</p>
+      <p><strong>Teaching note:</strong> The sausage and hot dog pictured are made with pork. Other kinds can be made with different meats. Families may choose not to eat pork.</p>
+      <div class="dialog-actions"><button type="button" id="restore-names">Original groups</button><button class="primary" value="done">Done</button></div>
+    </form>
+  </dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>
